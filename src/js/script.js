@@ -191,18 +191,21 @@ function activateMenuItemOnScroll() {
 
 // Scroll event throttling: Optimizes performance using requestAnimationFrame.
 function initScrollListeners() {
-  let ticking = false;
+  let isThrottled = false;
+
   window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateHeaderBackground();
-        activateMenuItemOnScroll();
-        ticking = false;
-      });
-      ticking = true;
-    }
+    if (isThrottled) return;
+
+    isThrottled = true;
+
+    setTimeout(() => {
+      updateHeaderBackground();
+      activateMenuItemOnScroll();
+      isThrottled = false;
+    }, 100); // ms → isteğe göre 50–150 arası ayarlanabilir
   });
-  // Run on first load too
+
+  // Sayfa ilk yüklendiğinde de çalışsın
   updateHeaderBackground();
   activateMenuItemOnScroll();
 }
