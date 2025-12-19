@@ -354,6 +354,12 @@ async function initAll() {
 
   // 4. START SCROLL AND NAVIGATION LISTENERS
   initScrollListeners();
+
+  const loader = document.getElementById("page-loader");
+  if (loader) {
+    loader.classList.add("opacity-0");
+    setTimeout(() => loader.remove(), 300);
+  }
 }
 
 // Start the entire function as soon as the browser builds the DOM tree
