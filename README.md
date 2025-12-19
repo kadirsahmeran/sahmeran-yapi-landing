@@ -46,9 +46,3 @@ The project is completely static and requires no build tools, dependencies, or b
 2. Preview the project locally:
    - **Recommended (VS Code users):** Open the project folder in Visual Studio Code and click **"Go Live"** (using the Live Server extension). This starts a local server and provides the best experience.
    - **Alternative:** Simply open the `index.html` file directly in your web browser.
-
-
-
-   ```bash
-   git clone https://github.com/kadirsahmeran/sahmeran-yapi.git
-   cd sahmeran-yapi
